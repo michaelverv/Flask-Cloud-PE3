@@ -32,4 +32,4 @@ RUN flask db upgrade
 EXPOSE 8000
 
 # runnen van de applicatie
-CMD ["sh", "-c", "gunicorn -w 4 crudapp:app"]
+CMD ["sh", "-c", "gunicorn -w 4 -b 0.0.0.0:8000 crudapp:app"]
