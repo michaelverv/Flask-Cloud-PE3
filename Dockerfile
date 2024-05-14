@@ -29,7 +29,7 @@ RUN flask db migrate -m "entries table"
 RUN flask db upgrade
 
 # poort 8000 openzetten
-EXPOSE 8000
+EXPOSE 80
 
 # runnen van de applicatie
-CMD ["sh", "-c", "gunicorn -w 4 -b 0.0.0.0:8000 crudapp:app"]
+CMD ["sh", "-c", "gunicorn -w 4 -b 0.0.0.0:80 crudapp:app"]
