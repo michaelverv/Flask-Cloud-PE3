@@ -32,4 +32,4 @@ RUN pip install -r requirements.txt
 EXPOSE 8000
 
 # runnen van de applicatie
-CMD ["gunicorn", "-w", "4", "crudapp:app"]
+CMD ["gunicorn", "-w", "4", "app:app"]
