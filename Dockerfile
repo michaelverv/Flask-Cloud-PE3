@@ -16,20 +16,20 @@ RUN pip install --upgrade pip
 # installeren van de requirements (inclusief uvicorn)
 RUN pip install -r requirements.txt
 
-# zetten van de environment variabele
-ENV FLASK_APP=crudapp.py
+# # zetten van de environment variabele
+# ENV FLASK_APP=crudapp.py
 
-# database initialiseren
-RUN flask db init
+# # database initialiseren
+# RUN flask db init
 
-# migration maken
-RUN flask db migrate -m "entries table"
+# # migration maken
+# RUN flask db migrate -m "entries table"
 
-# migration upgraden
-RUN flask db upgrade
+# # migration upgraden
+# RUN flask db upgrade
 
 # poort 8000 openzetten
 EXPOSE 8000
 
 # runnen van de applicatie
-CMD ["uvicorn", "--host", "0.0.0.0", "--port", "8000", "crudapp:app"]
+CMD ["gunicorn", "-w", "4", "crudapp:app"]
