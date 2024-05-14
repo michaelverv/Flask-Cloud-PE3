@@ -17,7 +17,7 @@ RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 # zetten van de environment variabele
-ENV FLASK_APP=crudapp.py
+#ENV FLASK_APP=crudapp.py
 
 # database initialiseren
 RUN flask db init
