@@ -1,6 +1,13 @@
 version: '3.3'
 services:
   app-mv: 
-    build: ./
+    image: michaelverv/cloud-pe3-mv
     ports:
-      - '8000:8000'
+      - '80:80'
+  sql-mv: # sql container
+    image: mysql:latest # image van sql, hiervan de laatste versie
+    environment:
+      - MYSQL_DATABASE=linux_ws # naam van de sql database
+      - MYSQL_USER=linux # username voor de database
+      - MYSQL_PASSWORD=linux # password voor de database
+      - MYSQL_ALLOW_EMPTY_PASSWORD=1
